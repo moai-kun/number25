@@ -1,0 +1,122 @@
+/* (意味ないかも？)ダブルタップでのズームなど、標準外の追加的なジェスチャーを無効にする */
+* {
+    touch-action: manipulation;
+}
+
+/* フォント指定(テキトーなおすすめテンプレ) */
+body {
+    font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+/* 数字のボタン */
+.buttonEx {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 80, 130);
+    border-style: none;
+    border-radius: 10px; /*角の丸み*/
+}
+.buttonIn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+/* スタートボタン */
+.startbutton {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(210, 238, 255);
+    border-style: none;
+    border-radius: 10px;
+    padding: 0%;
+    opacity: 0.9;
+    animation: shake 2s linear infinite;
+}
+@keyframes shake {
+    0% {transform: translateY(0px)}
+    25% {transform: translateY(3px)}
+    50% {transform: translateY(0px)}
+    75% {transform: translateY(-3px)}
+    100% {transform: translateY(0px)}
+}
+
+/* リスタートボタン */
+.restartbutton {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 24, 95);
+    border-style: none;
+    border-radius: 10px; /*角の丸み*/
+}
+/* スコア表示ボタン */
+.scorebutton {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 24, 95);
+    border-style: none;
+    border-radius: 10px; /*角の丸み*/
+}
+/* スコアボード */
+.scoreboard {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: rgb(210, 238, 255);
+    border-style: none;
+    border-radius: 10px; /*角の丸み*/
+    opacity: 0.9;
+    animation: zoomup 0.2s linear forwards;
+}
+@keyframes zoomup {
+    0% {transform: scale(0.0, 0.0)}
+    100% {transform: scale(1.0, 1.0)}
+}
+table {
+    position: relative;
+}
+th {
+    text-align: center;
+}
+.tablevalue {
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+/* スコアの強調 */
+.nowscore {
+    animation: emphasis 0.4s infinite;
+}
+@keyframes emphasis {
+    0% {color: white;}
+    50% {color: red;}
+    100% {color: white;}
+}
+
+/* 次の番号 */
+.num {
+    font-weight: bold;
+}
+
+/* ストップウォッチ */
+.timer {
+    font-weight: bold;
+}
+
+/* 正解のボタンをクリックしたとき */
+.clicked {
+    transition: all 500ms 0s ease-out;
+    transform: rotate(1.0turn) scale(0.0);
+}
+
+/* 間違ったボタンをクリックしたとき */
+.badeffect {
+    animation: badeff 0.1s linear forwards;
+}
+@keyframes badeff {
+    0% {transform: scale(1.1); color: rgb(255, 0, 0)}
+    100% {transform: scale(1.0); color: rgb(255, 255, 255)}
+}
